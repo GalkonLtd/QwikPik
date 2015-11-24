@@ -45,11 +45,11 @@ public class ContentArea extends UIPane {
     public void drawContent() {
         if (SideBar.currentSelectionMatches(SideBar.ABOUT_LOC[0], SideBar.ABOUT_LOC[1])) {//ABOUT
             int y = 140;
-            this.drawCenteredString("Welcome to " + Config.APPLICATION_NAME + " (v " + Config.VERSION + ")!", this.getWidth() / 2, y, Config.CALIBRI_12_BOLD, Config.FONT_COLOR);
-            this.drawCenteredString("QwikPik is a user-friendly, cross-platform, and easy-to-use screen capturing utility.", this.getWidth() / 2, y += 20, Config.CALIBRI_12, Config.FONT_COLOR);
-            this.drawCenteredString("QwikPik is still in the early stages of development, therefor bugs may occur. Any", this.getWidth() / 2, y += 20, Config.CALIBRI_12, Config.FONT_COLOR);
-            this.drawCenteredString("and all feedback is welcome!", this.getWidth() / 2, y += 20, Config.CALIBRI_12, Config.FONT_COLOR);
-            this.drawCenteredString("www.qwikpik.it", this.getWidth() / 2, y += 20, Config.CALIBRI_12_BOLD, new Color(100, 100, 255));
+            this.drawCenteredString("Welcome to " + Config.APPLICATION_NAME + " (v " + Config.VERSION + ")!", this.getWidth() / 2, y, Config.BOLD_FONT, Config.FONT_COLOR);
+            this.drawCenteredString("QwikPik is a user-friendly, cross-platform, and easy-to-use screen capturing utility.", this.getWidth() / 2, y += 20, Config.REGULAR_FONT, Config.FONT_COLOR);
+            this.drawCenteredString("QwikPik is still in the early stages of development, therefor bugs may occur. Any", this.getWidth() / 2, y += 20, Config.REGULAR_FONT, Config.FONT_COLOR);
+            this.drawCenteredString("and all feedback is welcome!", this.getWidth() / 2, y += 20, Config.REGULAR_FONT, Config.FONT_COLOR);
+            this.drawCenteredString("www.qwikpik.it", this.getWidth() / 2, y += 20, Config.BOLD_FONT, new Color(100, 100, 255));
         } else if (SideBar.currentSelectionMatches(SideBar.CAPTURE_LOC[0], SideBar.CAPTURE_LOC[1])) {//capture
             int y = 0;
             int realIndex = 0;
@@ -59,8 +59,8 @@ public class ContentArea extends UIPane {
                     continue;
                 }
                 this.fillRect(0, y, this.getWidth(), 40, realIndex % 2 == 0 ? Config.LIGHT_2 : Config.LIGHT_1);
-                this.drawCenteredString(keyMacro.getName(), this.getWidth() / 2, y + 15, Config.CALIBRI_12_BOLD, captureHoverIndex == realIndex ? Color.WHITE : Config.FONT_COLOR);
-                this.drawCenteredString(keyMacro.getDescription(), this.getWidth() / 2, y + 30, Config.CALIBRI_12, captureHoverIndex == realIndex ? Color.WHITE : Config.FONT_COLOR);
+                this.drawCenteredString(keyMacro.getName(), this.getWidth() / 2, y + 15, Config.BOLD_FONT, captureHoverIndex == realIndex ? Color.WHITE : Config.FONT_COLOR);
+                this.drawCenteredString(keyMacro.getDescription(), this.getWidth() / 2, y + 30, Config.REGULAR_FONT, captureHoverIndex == realIndex ? Color.WHITE : Config.FONT_COLOR);
                 if (captureHoverIndex == realIndex) {
                     this.drawImage(CAMERA_IMAGE, this.getWidth() - (CAMERA_IMAGE.getWidth(null) + 10), y + 40 / 2 - CAMERA_IMAGE.getHeight(null) / 2, captureCameraHoverIndex == realIndex ? 1F : 0.5F);
                 }
@@ -74,7 +74,7 @@ public class ContentArea extends UIPane {
                 ToggleButton toggleButton = settings.getToggleButton();
                 
                 this.fillRect(0, y + (index * 30), this.getWidth(), 30, index % 2 == 0 ? Config.LIGHT_2 : Config.LIGHT_1);
-                this.drawString(settings.getName(), 5, y + 19 + (index * 30), Config.CALIBRI_12, Config.FONT_COLOR);
+                this.drawString(settings.getName(), 5, y + 19 + (index * 30), Config.REGULAR_FONT, Config.FONT_COLOR);
                 if (toggleButton.getParent() == null) {
                     toggleButton.setParent(this);
                     toggleButton.setX(this.getWidth() - 66);
@@ -89,13 +89,13 @@ public class ContentArea extends UIPane {
             while (it.hasNext()) {
                 Uploader uploader = it.next();
                 this.fillRect(0, y + (index * 40), this.getWidth(), 40, index % 2 == 0 ? Config.LIGHT_2 : Config.LIGHT_1);
-                this.drawCenteredString(uploader.getName(), this.getWidth() / 2, y + 15 + (index * 40), Config.CALIBRI_12_BOLD, captureHoverIndex == index ? Color.WHITE : Config.FONT_COLOR);
-                this.drawCenteredString(uploader.getDescription(), this.getWidth() / 2, y + 30 + (index * 40), Config.CALIBRI_12, captureHoverIndex == index ? Color.WHITE : Config.FONT_COLOR);
+                this.drawCenteredString(uploader.getName(), this.getWidth() / 2, y + 15 + (index * 40), Config.BOLD_FONT, captureHoverIndex == index ? Color.WHITE : Config.FONT_COLOR);
+                this.drawCenteredString(uploader.getDescription(), this.getWidth() / 2, y + 30 + (index * 40), Config.REGULAR_FONT, captureHoverIndex == index ? Color.WHITE : Config.FONT_COLOR);
                 index++;
             }
         } else if (SideBar.currentSelectionMatches(SideBar.HOTKEYS_LOC[0], SideBar.HOTKEYS_LOC[1])) {//hotkeys
             this.fillRect(0, 0, this.getWidth(), 30, Config.LIGHT_1);
-            this.drawCenteredString("Screen Capturing Hotkeys", this.getWidth() / 2, 18, Config.CALIBRI_12_BOLD, Config.FONT_COLOR);
+            this.drawCenteredString("Screen Capturing Hotkeys", this.getWidth() / 2, 18, Config.BOLD_FONT, Config.FONT_COLOR);
             int y = 30;
             int realIndex = 0;
             int editingHotkeyIndex = KeyBindListener.getInstance().getEditingHotKeyIndex();
@@ -109,9 +109,9 @@ public class ContentArea extends UIPane {
                 if (editing) {
                     this.drawRect(0, y, this.getWidth() - 2, 28, Config.GREEN);
                 }
-                this.drawString(keyMacro.getName(), 5, y + 19, Config.CALIBRI_12, Config.FONT_COLOR);
+                this.drawString(keyMacro.getName(), 5, y + 19, Config.REGULAR_FONT, Config.FONT_COLOR);
                 String string = (editing ? "*" : "") + keyMacro.getKeyBind().toString();
-                this.drawString(string, this.getWidth() - 35 - this.getParent().getFontMetrics(Config.CALIBRI_12).stringWidth(string), y + 19, Config.CALIBRI_12, Config.FONT_COLOR);
+                this.drawString(string, this.getWidth() - 35 - this.getParent().getFontMetrics(Config.REGULAR_FONT).stringWidth(string), y + 19, Config.REGULAR_FONT, Config.FONT_COLOR);
 
                 this.drawImage(editing ? LOCKBUTTON_UNLOCKED : LOCKBUTTON_LOCKED, this.getWidth() - 5 - 22, y + 3);
                 if (hotkeyHoverIndex == realIndex) {
@@ -122,20 +122,20 @@ public class ContentArea extends UIPane {
                 y += 30;
             }
             if (editingHotkeyIndex != -1) {
-                this.drawCenteredString("You are editing a hotkey.", this.getWidth() / 2, 250, Config.CALIBRI_12, Config.GREEN);
-                this.drawCenteredString("Enter a keyboard combination and click the lock button to save it.", this.getWidth() / 2, 265, Config.CALIBRI_12, Config.GREEN);
+                this.drawCenteredString("You are editing a hotkey.", this.getWidth() / 2, 250, Config.REGULAR_FONT, Config.GREEN);
+                this.drawCenteredString("Enter a keyboard combination and click the lock button to save it.", this.getWidth() / 2, 265, Config.REGULAR_FONT, Config.GREEN);
             }
             switch (hotkeyError) {
                 case 0: {
                     this.fillRect(0, 0, this.getWidth(), this.getHeight(), new Color(196, 90, 90, 175));
-                    this.drawCenteredString("You must save the hotkey you are currently editing.", this.getWidth() / 2, this.getHeight() / 2 - 7, Config.CALIBRI_12, Config.FONT_COLOR);
-                    this.drawCenteredString("(Click to dismiss)", this.getWidth() / 2, this.getHeight() / 2 + 7, Config.CALIBRI_12.deriveFont(11F), Config.FONT_COLOR);
+                    this.drawCenteredString("You must save the hotkey you are currently editing.", this.getWidth() / 2, this.getHeight() / 2 - 7, Config.REGULAR_FONT, Config.FONT_COLOR);
+                    this.drawCenteredString("(Click to dismiss)", this.getWidth() / 2, this.getHeight() / 2 + 7, Config.REGULAR_FONT.deriveFont(11F), Config.FONT_COLOR);
                     break;
                 }
             }
             if (!Settings.ENABLE_KEY_LISTENING.isEnabled()) {
                 this.fillRect(0, 0, this.getWidth(), this.getHeight(), new Color(40, 40, 40, 200));
-                this.drawCenteredString("You must enable key listening to enable hotkeys.", this.getWidth() / 2, this.getHeight() / 2, Config.CALIBRI_12, Config.FONT_COLOR);
+                this.drawCenteredString("You must enable key listening to enable hotkeys.", this.getWidth() / 2, this.getHeight() / 2, Config.REGULAR_FONT, Config.FONT_COLOR);
             }
         } else if (SideBar.currentSelectionMatches(SideBar.UPLOAD_HISTORY_LOC[0], SideBar.UPLOAD_HISTORY_LOC[1])) {//upload history
             int y = 0 - uploadHistoryScrollOffset;
@@ -145,9 +145,9 @@ public class ContentArea extends UIPane {
                 this.fillRect(0, y + (index * 30), this.getWidth(), 30, index % 2 == 0 ? Config.LIGHT_2 : Config.LIGHT_1);
 
                 UploadResult upload = UploadHistory.getUploads().get(UploadHistory.size() - 1 - index);
-                this.drawString(upload.getUrl(), 5, y + 19 + (index * 30), Config.CALIBRI_12, hovered ? Color.WHITE : Config.FONT_COLOR);
-                String date = Utils.getDate(upload.getTimestamp()).toString();
-                //this.drawString(date, this.getWidth() - ApplicationWindow.getStringWidth(Config.CALIBRI_12, date) - 5, y + 19 + (index * 30), Config.CALIBRI_12, hovered ? Color.WHITE : Config.FONT_COLOR);
+                this.drawString(upload.getUrl(), 5, y + 19 + (index * 30), Config.REGULAR_FONT, hovered ? Color.WHITE : Config.FONT_COLOR);
+                //String date = Utils.getDate(upload.getTimestamp()).toString();
+                //this.drawString(date, this.getWidth() - ApplicationWindow.getStringWidth(Config.REGULAR_FONT, date) - 5, y + 19 + (index * 30), Config.REGULAR_FONT, hovered ? Color.WHITE : Config.FONT_COLOR);
 
                 if (hovered) {
                     int x = this.getWidth() - 50;

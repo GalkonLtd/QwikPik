@@ -7,14 +7,11 @@ import com.galkonltd.qwikpik.ui.impl.TitleBar;
 import com.nova.task.Task;
 import com.nova.task.TaskManager;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.URL;
 
 /**
  * "The real danger is not that computers will begin to think like men, but that men will begin to think like computers." – Sydney Harris
@@ -98,7 +95,7 @@ public class PreviewWindow extends JWindow {
     public void paint(Graphics g) {
         Graphics2D g2d = (Graphics2D) g;
 
-        g2d.setFont(Config.CALIBRI_12_BOLD);
+        g2d.setFont(Config.BOLD_FONT);
         g2d.setColor(Color.BLACK);
         g2d.drawString(this.url, 6, 15);
         g2d.setColor(hoverIndex == 0 ? Color.WHITE : Config.FONT_COLOR);
@@ -114,7 +111,7 @@ public class PreviewWindow extends JWindow {
     private final MouseAdapter mouseAdapter = new MouseAdapter() {
         @Override
         public void mousePressed(MouseEvent e) {
-            if (mouseInRegion(e, 0, 0, 5 + getFontMetrics(Config.CALIBRI_12_BOLD).stringWidth(url) + 5, 20)) {
+            if (mouseInRegion(e, 0, 0, 5 + getFontMetrics(Config.BOLD_FONT).stringWidth(url) + 5, 20)) {
                 Utils.openURL(url);
             } else if (mouseInRegion(e, getWidth() - TitleBar.CLOSE_ICON.getWidth(null) - 5 - CLIPBOARD_IMAGE.getWidth(null) - 3, 11 - CLIPBOARD_IMAGE.getHeight(null) / 2, 11, 11)) {
                 Utils.copyToClipboard(url);
@@ -128,7 +125,7 @@ public class PreviewWindow extends JWindow {
             int hover = hoverIndex;
             hoverIndex = -1;
 
-            if (mouseInRegion(e, 0, 0, 5 + getFontMetrics(Config.CALIBRI_12_BOLD).stringWidth(url) + 5, 20)) {
+            if (mouseInRegion(e, 0, 0, 5 + getFontMetrics(Config.BOLD_FONT).stringWidth(url) + 5, 20)) {
                 hoverIndex = 0;
             } else if (mouseInRegion(e, getWidth() - TitleBar.CLOSE_ICON.getWidth(null) - 5 - CLIPBOARD_IMAGE.getWidth(null) - 3, 11 - CLIPBOARD_IMAGE.getHeight(null) / 2, 11, 11)) {
                 hoverIndex = 1;

@@ -15,8 +15,8 @@ public final class Config {
     public static final String VERSION = "0.4.1";
 
     public static final Color FONT_COLOR = new Color(173, 175, 178);
-    public static final Font CALIBRI_12 = new Font("Calibri", 0, 12);
-    public static final Font CALIBRI_12_BOLD = new Font("Calibri", Font.BOLD, 12);
+    public static final Font REGULAR_FONT = new Font("Arial", 0, 12);
+    public static final Font BOLD_FONT = new Font("Arial", Font.BOLD, 12);
     public static final Color LIGHT_1 = new Color(40, 40, 40);
     public static final Color LIGHT_2 = new Color(34, 34, 34);
     public static final Color DARK_1 = new Color(24, 24, 24);

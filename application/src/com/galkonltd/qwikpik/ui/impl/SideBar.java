@@ -57,7 +57,7 @@ public class SideBar extends UIPane {
         this.fillRect(0, 0, this.getWidth(), this.getHeight(), Config.LIGHT_1);
 
         for (int index = 0; index < SETTING_CATEGORIES.length; index++) {
-            this.drawString(SETTING_CATEGORIES[index].toUpperCase(), x, y, Config.CALIBRI_12, Config.FONT_COLOR);
+            this.drawString(SETTING_CATEGORIES[index].toUpperCase(), x, y, Config.REGULAR_FONT, Config.FONT_COLOR);
             y += 18;
             for (int sub = 0; sub < SETTINGS_SUBCATEGORIES[index].length; sub++) {
                 boolean selected = currentSelectionMatches(index, sub);
@@ -65,7 +65,7 @@ public class SideBar extends UIPane {
                 if (selected || hovered) {
                     this.fillRect(x - 7, y - 11, 4, 13, Config.SPECTRUM_COLORS[sub]);
                 }
-                this.drawString(SETTINGS_SUBCATEGORIES[index][sub], x + 15 + (SETTINGS_SUBCATEGORIES[index][sub].equalsIgnoreCase("Settings") ? 1 : 0), y, Config.CALIBRI_12, hovered ? Color.WHITE : selected ? new Color(200, 200, 200) : Config.FONT_COLOR);
+                this.drawString(SETTINGS_SUBCATEGORIES[index][sub], x + 15 + (SETTINGS_SUBCATEGORIES[index][sub].equalsIgnoreCase("Settings") ? 1 : 0), y, Config.REGULAR_FONT, hovered ? Color.WHITE : selected ? new Color(200, 200, 200) : Config.FONT_COLOR);
                 y += 16;
                 if (sub == SETTINGS_SUBCATEGORIES[index].length - 1) {
                     y += 10;
